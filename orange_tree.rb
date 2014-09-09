@@ -7,9 +7,7 @@ class OrangeGrove
 
   # def count_all_the_oranges
   # end
-
 end
-
 
 class OrangeTree < OrangeGrove
 
@@ -59,8 +57,10 @@ class OrangeTree < OrangeGrove
         @orange_count = @orange_count - 1
         puts "You picked a most refreshing & delicious orange! You now have #{@orange_count} oranges."
       else
-        puts "I think your tree is dead."
+        puts "You don't have any oranges."
       end
+    else
+      puts "I think your tree is dead."
     end
   end
 
@@ -75,11 +75,9 @@ class OrangeTree < OrangeGrove
     end
   end
 
-
 end
 
-
-
+#testing this out
 very_orange_grove = OrangeGrove.new
 tree = OrangeTree.new
 double_tree = OrangeTree.new
