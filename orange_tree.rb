@@ -1,12 +1,19 @@
 class OrangeGrove
-  attr_accessor :trees
+  attr_accessor :trees, :all_the_oranges
 
   def initialize
     @trees = []
+    @all_the_oranges = []
   end
 
-  # def count_all_the_oranges
-  # end
+  def count_all_the_oranges
+    sum = 0
+    @all_the_oranges.each do |oranges|
+      sum += oranges
+    end
+    puts "There are #{sum} oranges in the grove."
+  end
+
 end
 
 class OrangeTree < OrangeGrove
@@ -42,7 +49,7 @@ class OrangeTree < OrangeGrove
     if @age < 10
       if @age > 2
         @orange_count = @age * 10
-        puts "Your tree has #{orange_count} oranges!"
+        puts "Your tree has #{@orange_count} oranges!"
       elsif @age <= 2
         puts "Your tree is too young to produce oranges."
       end
@@ -81,17 +88,29 @@ end
 very_orange_grove = OrangeGrove.new
 tree = OrangeTree.new
 double_tree = OrangeTree.new
+triple_tree = OrangeTree.new
 
 #time passes
 puts "tree one:"
 tree.one_year_passes
 tree.one_year_passes
+tree.one_year_passes
+
 
 puts "tree two:"
 double_tree.one_year_passes
 double_tree.one_year_passes
 double_tree.one_year_passes
 
-very_orange_grove.trees.push(tree, double_tree)
 
-# count_all_the_oranges
+puts "tree three:"
+triple_tree.one_year_passes
+triple_tree.one_year_passes
+triple_tree.one_year_passes
+
+
+very_orange_grove.all_the_oranges << tree.orange_count
+very_orange_grove.all_the_oranges << double_tree.orange_count
+very_orange_grove.all_the_oranges << triple_tree.orange_count
+
+very_orange_grove.count_all_the_oranges
